@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Videojuegos Digitales</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .map-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <a href="/sistema_web/index.php" class="btn-esquina">Iniciar Sesión</a>
+    
+    <header class="header">
+        <div class="logo">
+            <h1>CALP VideoGames</h1>
+        </div>
+        <div class="search-container">
+            <button class="search-button" id="searchButton">
+                <img src="https://cdn-icons-png.flaticon.com/512/17569/17569220.png" alt="Buscar">
+            </button>
+            <input type="text" id="searchInput" placeholder="Buscar videojuegos..." class="search-input">
+            <div id="suggestions" class="suggestions-container"></div>
+        </div>
+        <div class="cart-container">
+            <div class="cart-icon-container">
+                <img src="https://cdn-icons-png.flaticon.com/512/833/833314.png" alt="Carrito" class="cart-icon" id="cartIcon">
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+            <div class="cart-dropdown" id="cartDropdown">
+                <h3>Carrito de Compras</h3>
+                <div class="cart-items" id="cartItems">
+                    <!-- Los items del carrito se agregarán aquí dinámicamente -->
+                </div>
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$0.00</span>
+                </div>
+                <button class="checkout-button" id="checkoutButton">Proceder al Pago</button>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="categories">
+        <ul>
+            <li><a href="#featured">Destacados</a></li>
+            <li><a href="playstation.html">PlayStation</a></li>
+            <li><a href="xbox.html">Xbox</a></li>
+            <li><a href="nintendo.html">Nintendo</a></li>
+            <li><a href="pc.html">PC</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="platforms" class="platforms-grid">
+        <a href="playstation.html" class="platform-item">
+            <div class="platform-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PlayStation_logo.svg/2560px-PlayStation_logo.svg.png" alt="PlayStation Logo" class="platform-logo">
+                <div class="platform-info">
+                    <h3>PlayStation 5</h3>
+                    <div class="platform-games">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/header.jpg" alt="God of War Ragnarök">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1817190/header.jpg" alt="Spider-Man 2">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg" alt="The Last of Us Part I">
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="xbox.html" class="platform-item">
+            <div class="platform-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Xbox_one_logo.svg/2560px-Xbox_one_logo.svg.png" alt="Xbox Logo" class="platform-logo">
+                <div class="platform-info">
+                    <h3>Xbox Series X|S</h3>
+                    <div class="platform-games">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forza Horizon 5">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1240440/header.jpg" alt="Halo Infinite">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1716740/header.jpg" alt="Starfield">
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="nintendo.html" class="platform-item">
+            <div class="platform-content">
+                <img src="https://seeklogo.com/images/N/nintendo-switch-logo-38D4F5C7E7-seeklogo.com.png" alt="Nintendo Switch Logo" class="platform-logo">
+                <div class="platform-info">
+                    <h3>Nintendo Switch</h3>
+                    <div class="platform-games">
+                        <img src="https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_700/v1/ncom/en_US/games/switch/t/the-legend-of-zelda-tears-of-the-kingdom-switch/hero" alt="Zelda: Tears of the Kingdom">
+                        <img src="https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_SuperMarioBrosWonder_image500w.jpg" alt="Super Mario Bros. Wonder">
+                        <img src="https://assets.nintendo.com/image/upload/ar_16:9,b_auto:border,c_lpad/b_white/f_auto/q_auto/dpr_auto/c_scale,w_700/v1/ncom/en_US/games/switch/p/pokemon-scarlet-switch/hero" alt="Pokemon Scarlet">
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        <a href="pc.html" class="platform-item">
+            <div class="platform-content">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png" alt="PC Logo" class="platform-logo">
+                <div class="platform-info">
+                    <h3>PC Gaming</h3>
+                    <div class="platform-games">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1086940/header.jpg" alt="Baldur's Gate 3">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/730/header.jpg" alt="CS2">
+                        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg" alt="Forspoken">
+                    </div>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <section id="featured" class="category-section">
+        <h2>Juegos Destacados</h2>
+        <p>Los juegos más populares y vendidos de todas las plataformas</p>
+        
+        <div class="game-list">
+            <div class="game-item">
+                <h3>Grand Theft Auto V</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg" alt="Grand Theft Auto V">
+                <p class="price">$29.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="1" data-name="Grand Theft Auto V" data-price="29.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Minecraft</h3>
+                <img src="https://image.api.playstation.com/vulcan/img/cfn/11307uYG0CXzRuA9aryByTHYrQLFz-HVQ3VVl7aAysxK15HMpqjkAIcC_R5vdfZt52hAXQNHoYhSuoSq_46_MT_tDBcLu49I.png" alt="Minecraft">
+                <p class="price">$26.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                    <option value="NSW">Nintendo Switch</option>
+                </select>
+                <button class="buy-button" data-id="2" data-name="Minecraft" data-price="26.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Red Dead Redemption 2</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
+                <p class="price">$39.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="3" data-name="Red Dead Redemption 2" data-price="39.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>The Witcher 3</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header.jpg" alt="The Witcher 3">
+                <p class="price">$39.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                    <option value="NSW">Nintendo Switch</option>
+                </select>
+                <button class="buy-button" data-id="4" data-name="The Witcher 3" data-price="39.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Elden Ring</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring">
+                <p class="price">$59.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="5" data-name="Elden Ring" data-price="59.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>EA Sports FC 24</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2195250/header.jpg" alt="EA Sports FC 24">
+                <p class="price">$69.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                    <option value="NSW">Nintendo Switch</option>
+                </select>
+                <button class="buy-button" data-id="6" data-name="EA Sports FC 24" data-price="69.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Cyberpunk 2077</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
+                <p class="price">$49.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="7" data-name="Cyberpunk 2077" data-price="49.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Assassin's Creed Mirage</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1892130/header.jpg" alt="AC Mirage">
+                <p class="price">$49.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="8" data-name="Assassin's Creed Mirage" data-price="49.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Hogwarts Legacy</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/990080/header.jpg" alt="Hogwarts Legacy">
+                <p class="price">$59.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                    <option value="NSW">Nintendo Switch</option>
+                </select>
+                <button class="buy-button" data-id="9" data-name="Hogwarts Legacy" data-price="59.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Resident Evil 4</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4">
+                <p class="price">$59.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                    <option value="NSW">Nintendo Switch</option>
+                </select>
+                <button class="buy-button" data-id="10" data-name="Resident Evil 4" data-price="59.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Mortal Kombat 1</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1971870/header.jpg" alt="Mortal Kombat 1">
+                <p class="price">$69.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                    <option value="NSW">Nintendo Switch</option>
+                </select>
+                <button class="buy-button" data-id="11" data-name="Mortal Kombat 1" data-price="69.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Diablo IV</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/2344520/header.jpg" alt="Diablo IV">
+                <p class="price">$69.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="12" data-name="Diablo IV" data-price="69.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Street Fighter 6</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/header.jpg" alt="Street Fighter 6">
+                <p class="price">$59.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="13" data-name="Street Fighter 6" data-price="59.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Final Fantasy XVI</h3>
+                <img src="https://cdn.wccftech.com/wp-content/uploads/2023/06/FINAL_FANTASY_XVI_Logo_Black_EN_png_jpgcopy-scaled.jpg" alt="Final Fantasy XVI">
+                <p class="price">$69.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                </select>
+                <button class="buy-button" data-id="14" data-name="Final Fantasy XVI" data-price="69.99">Agregar al Carrito</button>
+            </div>
+            <div class="game-item">
+                <h3>Lies of P</h3>
+                <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1627720/header.jpg" alt="Lies of P">
+                <p class="price">$59.99</p>
+                <select class="platform-select">
+                    <option value="PS5">PlayStation 5</option>
+                    <option value="XSX">Xbox Series X|S</option>
+                    <option value="PC">PC</option>
+                </select>
+                <button class="buy-button" data-id="15" data-name="Lies of P" data-price="59.99">Agregar al Carrito</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.1234567890123!2d-109.933333!3d27.483333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDI5JzAwLjAiTiAxMDnCsDU2JzAwLjAiVw!5e0!3m2!1ses!2smx!4v1710000000000!5m2!1ses!2smx"
+          width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    <div class="map-container"></div>
+    <footer class="footer">
+        <p>© 2025 Tienda de Videojuegos Digitales. Todos los derechos reservados.</p>
+        <p>CALP videogames</p>
+    </footer>
+
+    <!-- Modal de Pago -->
+    <div class="payment-modal" id="paymentModal">
+        <div class="payment-modal-content">
+            <div class="payment-header">
+                <h2>Procesando Pago</h2>
+            </div>
+            <div class="payment-body">
+                <div class="payment-animation">
+                    <div class="payment-circle"></div>
+                    <div class="payment-check">
+                        <span class="check-line-1"></span>
+                        <span class="check-line-2"></span>
+                    </div>
+                </div>
+                <div class="payment-message">
+                    <p class="processing">Procesando su pago...</p>
+                    <p class="success">¡Pago completado con éxito!</p>
+                    <div class="payment-details"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

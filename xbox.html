@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xbox Games - CALP VideoGames</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .xbox-theme {
+            background: linear-gradient(135deg, rgba(16, 124, 16, 0.97), rgba(5, 75, 5, 0.95));
+            position: relative;
+            overflow-x: hidden;
+            white-space: nowrap;
+        }
+
+        .xbox-theme::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: url('https://www.freepnglogos.com/uploads/xbox-logo-png/xbox-logo-png-xbox-logos-vector-eps-ai-cdr-svg-free-6.png') center/contain no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .platform-content {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            margin-top: 100px;
+        }
+
+        .section-title {
+            text-align: left;
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+            font-size: 2em;
+            color: white;
+        }
+
+        .games-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .games-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .game-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        .game-card {
+            flex: 0 0 300px;
+            margin: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .platform-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .xbox-theme::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: url('https://cdn-icons-png.flaticon.com/512/1/1321.png') center/contain no-repeat;
+            opacity:0.5;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body class="platform-page xbox-theme">
+
+    <header class="header">
+        <div class="logo">
+            <h1>CALP VideoGames - Xbox</h1>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </nav>
+    </header>
+
+    <br>
+    <br>
+    <br>
+
+    <!--carrito de compras-->
+    <div class="cart-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png" alt="Carrito" class="cart-icon" id="cartIcon">
+        <span class="cart-count">0</span>
+        <div class="cart-dropdown" id="cartDropdown">
+            <h3>Tu Carrito</h3>
+            <div class="cart-items" id="cartItems">
+                <!-- Los items del carrito aparecerán aquí -->
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cartTotal">$0.00</span></p>
+                <button class="checkout-btn" id="checkoutBtn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="platform-content">
+        <div class="games-container">
+            <div class="game-grid">
+                <div class="game-card">
+                    <img src="https://tse4.mm.bing.net/th?id=OIP.J9n1mv-fFNlBRqLiG9RbkQHaEK&pid=Api&P=0&h=180" alt="Forza Horizon 5">
+                    <div class="game-info">
+                        <h3>Forza Horizon 5</h3>
+                        <p class="game-price">$59.99</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.J94YulO3z3hnN92e-vQNAAHaHa&pid=Api&P=0&h=180" alt="Halo Infinite">
+                    <div class="game-info">
+                        <h3>Halo Infinite</h3>
+                        <p class="game-price">$59.99</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.iC_5cxvAd1UV9JWLOf4_CQHaHa&pid=Api&P=0&h=180" alt="Starfield">
+                    <div class="game-info">
+                        <h3>Starfield</h3>
+                        <p class="game-price">$69.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="platform-footer">
+        <p>© 2025 CALP VideoGames. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

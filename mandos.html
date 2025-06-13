@@ -1,0 +1,349 @@
+    <!DOCTYPE html>
+
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mandos Electronics</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <style>/* Estilos globales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1A253D;
+            color: #D4D8DD;
+            line-height: 1.6;
+        }
+        
+        h1, h2, p {
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.656);
+            color:#D4D8DD;
+            border-radius: 20px;
+
+        }
+
+        li {
+        text-align:center;
+        }
+        
+        /* Contenedor de las tarjetas */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        /* Estilos de las tarjetas */
+        .card {
+            background-color: rgba(46, 65, 86, 0.8);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 280px;
+            height: 380px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: 0 8px 16px rgba(255, 255, 255, 0.4);
+        }
+        
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        .card-title {
+            color: #D4D8DD;
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        /* Contenedores por categorías */
+        .category-container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-align: center;
+            border-bottom: 2px solid #304FB4;
+            padding-bottom: 5px;
+        }
+        
+        /* Botón de compra */
+        .btn-compra {
+            background-color: white;
+            color: #1A253D;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-compra:hover {
+            background-color: #304FB4;
+            color: white;
+        }
+        
+        /* Estilo base para los enlaces */
+    /* Estilo base para los enlaces como botones */
+    a {
+        display: inline-block; /* Para que se comporte como un botón */
+        padding: 5px 10px; /* Espaciado interno */
+        background-color: #304FB4; /* Color de fondo */
+        color: white; /* Color del texto */
+        text-decoration: none; /* Quita el subrayado */
+        font-size: 1rem; /* Tamaño del texto */
+        font-weight: bold; /* Negrita */
+        border-radius: 8px; /* Bordes redondeados */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Efecto suave */
+    }
+
+    /* Efecto al pasar el mouse */
+    a:hover {
+        background-color: #1A253D; /* Cambio de color */
+        transform: scale(1.05); /* Efecto de agrandar */
+    }
+
+    /* Efecto cuando el botón es presionado */
+    a:active {
+        background-color: #FF5733; /* Color diferente */
+        transform: scale(0.95); /* Se encoge un poco */
+    }
+    /* Estilos para el carrito */
+#carrito {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(46, 65, 86, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    color: #D4D8DD;
+    display: none;
+}
+
+#carrito-icono {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#lista-carrito {
+    list-style-type: none;
+    padding: 0;
+}
+
+#lista-carrito li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+}
+
+.btn-eliminar {
+    background-color: #FF5733;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-eliminar:hover {
+    background-color: #C70039;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.agregado {
+    animation: shake 0.5s;
+}
+
+    </style>
+    
+    <body>
+        <br>
+        <h1>Bienvenido a Electronics</h1>
+        <br>
+        <h2>Aquí podrás encontrar mandos para tus consolas favoritas</h2>
+        <br>
+        <nav>
+            <ul>
+                <li><a href="#PlayStation">Mandos para PlayStation</a></li>
+                <br>
+                <li><a href="#Xbox">Mados para Xbox</a></li>  
+            </ul>
+        </nav>
+        
+        <!-- Ícono del carrito -->
+        <div id="carrito-icono">🛒</div>
+        <div id="carrito">
+            <ul id="lista-carrito"></ul>
+            <p>Total de tu carrito: <span id="total">0</span> €</p>
+        </div>
+        <br>
+        
+        <!--Sección de mandos más comprados-->
+        <section class="Mandos Más comprados">
+            <h2>Mandos Destacados</h2>
+            <div class="card-container">
+                <!-- Tarjeta 1 -->
+                <div class="card">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnM-p0zdiD5-SNTzLG4j6hIDUvaSjddohfvw&s" alt="" class="card-img">
+                    <h3 class="card-title">Mando para Xbox Series X</h3>
+                
+                <button class="btn-compra" data-nombre="Mando para Xbox Series X" data-precio="200">Comprar</button>
+                </div>
+
+            
+
+                <!-- Tarjeta 3 -->
+                <div class="card">
+                    <img style="height:300px;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGlMedAeoSrKxaLGC8HMCiwqlJ6PZ9gZF4Bw&s" alt="" class="card-img">
+                    <h3 class="card-title">Mando para PlayStation 5</h3>
+                    
+                    <button class="btn-compra" data-nombre="Mando para PlayStation 5" data-precio="50">Comprar</button>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Sección de Mandos de play -->
+        <h1 id="PlayStation">Mandos de PlayStation</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://www.costco.com.mx/medias/sys_master/products/hb4/h53/86330640597022.jpg" alt="" class="card-img">
+                <h3 class="card-title">Mando de PlayStation Negro</h3>
+            
+                <button class="btn-compra" data-nombre="Mando de PlayStation Negro" data-precio="150">Comprar</button>
+            </div>
+            <div class="card">
+                <img style="height:250px; width:80%;" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW0ZU3f7mKbkcw9JtbEsvekCpkD_sijJeHPg&s" alt="" class="card-img">
+                <h3 class="card-title">Mando para PlayStation Rojo</h3>
+            
+                <button class="btn-compra" data-nombre="Mando para PlayStation Rojo" data-precio="150">Comprar</button>
+            </div>
+        </div>
+
+
+        <!--Seccion de mandos de Xbox-->
+
+        <h1 id="Xbox">Mandos de Xbox</h1>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQe1fujowBmUZzFPR65XDYUW4PXJoCifz79Ag&s" alt="" class="card-img">
+                <h3 class="card-title">Mando Para Xbox Azúl</h3>
+            
+                <button class="btn-compra" data-nombre="Mando de XBOX-ONE-SERIES-X_S-Azul-1" data-precio="150">Comprar</button>
+            </div>
+            <div class="card">
+                <img style="height:250px; width:80%;" src="https://audiocolor.co/cdn/shop/files/CONTROL-INALAMBRICO-XBOX-ONE-SERIES-X_S-ROJO-1.jpg?v=1715288700" alt="" class="card-img">
+                <h3 class="card-title">Mando para Xbox Rojo</h3>
+            
+                <button class="btn-compra" data-nombre="Mando de xbox series x/s rojo" data-precio="150">Comprar</button>
+            </div>
+        </div>
+
+
+    <script>
+ const carritoIcono = document.getElementById('carrito-icono');
+const carrito = document.getElementById('carrito');
+const listaCarrito = document.getElementById('lista-carrito');
+const totalElement = document.getElementById('total');
+const botonesCompra = document.querySelectorAll('.btn-compra');
+
+let carritoItems = [];
+
+// Alternar la visibilidad del carrito
+carritoIcono.addEventListener('click', () => {
+    carrito.style.display = carrito.style.display === 'block' ? 'none' : 'block';
+});
+
+// Función para agregar un producto al carrito
+function agregarAlCarrito(nombre, precio) {
+    carritoItems.push({ nombre, precio });
+    actualizarCarrito();
+}
+
+// Función para eliminar un producto del carrito
+function eliminarDelCarrito(index) {
+    carritoItems.splice(index, 1);
+    actualizarCarrito();
+}
+
+// Función para actualizar la visualización del carrito
+function actualizarCarrito() {
+    listaCarrito.innerHTML = '';
+    let total = 0;
+
+    carritoItems.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.nombre} - ${item.precio} €`;
+
+        const botonEliminar = document.createElement('button');
+        botonEliminar.textContent = 'Eliminar';
+        botonEliminar.classList.add('btn-eliminar');
+        botonEliminar.addEventListener('click', () => eliminarDelCarrito(index));
+
+        li.appendChild(botonEliminar);
+        listaCarrito.appendChild(li);
+
+        total += item.precio;
+    });
+
+    totalElement.textContent = total;
+}
+
+// Agregar eventos a los botones de compra
+botonesCompra.forEach(boton => {
+    boton.addEventListener('click', (e) => {
+        const nombre = boton.getAttribute('data-nombre');
+        const precio = parseInt(boton.getAttribute('data-precio'));
+        agregarAlCarrito(nombre, precio);
+
+        // Animación del carrito
+        carritoIcono.classList.add('agregado');
+        setTimeout(() => carritoIcono.classList.remove('agregado'), 500);
+    });
+});
+        </script>
+
+
+<footer>
+    <p><a href="index.html">Volver a la página principal</a></p>
+</footer>
+    </body>
+    </html>

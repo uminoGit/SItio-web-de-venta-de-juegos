@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - CALP VideoGames</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+         .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 120px auto 40px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .contact-info {
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-info:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-info h2 {
+            color: #fff;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-info p {
+            color: #ccc;
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+
+        .contact-info a {
+            color: #4a9eff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #66b3ff;
+        }
+
+        .icon {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        .home-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #4a90e2, #357abd);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .home-link:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(135deg, #357abd, #2868a0);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-icon {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .map-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 40px auto 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <h1>CALP VideoGames</h1>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-link home-link">
+                <img src="https://cdn-icons-png.flaticon.com/512/1946/1946488.png" alt="Inicio" class="home-icon">
+                Inicio
+            </a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+
+    <main class="contact-container">
+        <div class="contact-info">
+            <h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail Icon" class="icon">
+                Correo Electrónico
+            </h2>
+            <p><a href="mailto:contacto@calpvideogames.com">contacto@calpvideogames.com</a></p>
+        </div>
+
+        <div class="contact-info">
+            <h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1200px-WhatsApp.svg.png" alt="Phone Icon" class="icon">
+                Teléfono
+            </h2>
+            <p><a href="tel:+34600000000">+34 600 000 000</a></p>
+        </div>
+
+        <div class="contact-info">
+            <h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/2021_Facebook_icon.svg/2048px-2021_Facebook_icon.svg.png" alt="Facebook Icon" class="icon">
+                Facebook
+            </h2>
+            <p><a href="https://facebook.com/calpvideogames" target="_blank">facebook.com/calpvideogames</a></p>
+        </div>
+
+        <div class="contact-info">
+            <h2>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" alt="X (Twitter) Icon" class="icon">
+                X (Twitter)
+            </h2>
+            <p><a href="https://twitter.com/calpvideogames" target="_blank">@calpvideogames</a></p>
+        </div>
+    </main>
+    <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.1234567890123!2d-109.933333!3d27.483333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjfCsDI5JzAwLjAiTiAxMDnCsDU2JzAwLjAiVw!5e0!3m2!1ses!2smx!4v1710000000000!5m2!1ses!2smx"
+          width="100%" height="250" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+
+    <footer class="footer">
+        <p>© 2025 CALP VideoGames. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

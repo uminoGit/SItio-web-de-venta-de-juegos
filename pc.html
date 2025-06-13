@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Games - CALP VideoGames</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .pc-theme {
+            background: linear-gradient(135deg, rgba(23, 26, 33, 0.97), rgba(27, 40, 56, 0.95));
+            position: relative;
+            overflow-x: hidden;
+            white-space: nowrap;
+        }
+
+        .pc-theme::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/2048px-Steam_icon_logo.svg.png') center/contain no-repeat;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .platform-content {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            margin-top: 100px;
+        }
+
+        .section-title {
+            text-align: left;
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+            font-size: 2em;
+            color: white;
+        }
+
+        .games-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .games-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .game-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        .game-card {
+            flex: 0 0 300px;
+            margin: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .platform-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+    </style>
+</head>
+<body class="platform-page pc-theme">
+    <header class="header">
+        <div class="logo">
+            <h1>CALP VideoGames - PC</h1>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <main class="platform-content">
+        <h2 class="section-title">Juegos de PC</h2>
+        <div class="games-container">
+            <div class="game-grid">
+                <div class="game-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
+                    <div class="game-info">
+                        <h3>Cyberpunk 2077</h3>
+                        <p class="game-price">$59.99</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring">
+                    <div class="game-info">
+                        <h3>Elden Ring</h3>
+                        <p class="game-price">$59.99</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1716740/header.jpg" alt="Baldur's Gate 3">
+                    <div class="game-info">
+                        <h3>Baldur's Gate 3</h3>
+                        <p class="game-price">$59.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="platform-footer">
+        <p>© 2025 CALP VideoGames. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

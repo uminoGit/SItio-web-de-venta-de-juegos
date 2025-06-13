@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PlayStation Games - CALP VideoGames</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .playstation-theme {
+            background: linear-gradient(135deg, rgba(0, 67, 156, 0.97), rgba(0, 55, 145, 0.95));
+            position: relative;
+            overflow-x: hidden;
+            white-space: nowrap;
+        }
+
+        .playstation-theme::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: url('https://www.pngmart.com/files/13/Playstation-Logo-PNG-Transparent.png') center/contain no-repeat;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .platform-content {
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+            margin-top: 100px;
+        }
+
+        .section-title {
+            text-align: left;
+            padding: 0 2rem;
+            margin-bottom: 2rem;
+            font-size: 2em;
+            color: white;
+        }
+
+        .games-container {
+            display: flex;
+            overflow-x: auto;
+            padding: 1rem 0;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+        .games-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .game-grid {
+            display: flex;
+            gap: 2rem;
+            padding: 0 2rem;
+            margin: 0;
+        }
+
+        .game-card {
+            flex: 0 0 300px;
+            margin: 0;
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        .platform-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.9);
+        }
+        .playstation-theme::before {
+            content: '';
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: url('https://logos-world.net/wp-content/uploads/2020/11/PlayStation-Logo.png') center/contain no-repeat;
+            opacity: 0.6;
+            z-index: -1;
+        }
+        
+    </style>
+</head>
+<body class="platform-page playstation-theme">
+    <header class="header">
+        <div class="logo">
+            <h1>CALP VideoGames - PlayStation</h1>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-link">Volver al Inicio</a>
+        </nav>
+    </header>
+
+    <br>
+    <br>
+    <br>
+
+    <!--carrito de compras-->
+    <div class="cart-container">
+        <img src="https://cdn-icons-png.flaticon.com/512/4290/4290854.png" alt="Carrito" class="cart-icon" id="cartIcon">
+        <span class="cart-count">0</span>
+        <div class="cart-dropdown" id="cartDropdown">
+            <h3>Tu Carrito</h3>
+            <div class="cart-items" id="cartItems">
+                <!-- Los items del carrito aparecerán aquí -->
+            </div>
+            <div class="cart-total">
+                <p>Total: <span id="cartTotal">$0.00</span></p>
+                <button class="checkout-btn" id="checkoutBtn">Finalizar Compra</button>
+            </div>
+        </div>
+    </div>
+
+    <main class="platform-content">
+        <div class="games-container">
+            <div class="game-grid">
+                <div class="game-card">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202207/1210/4xJ8XB3bi888QTLZYdl7Oi0s.png" alt="God of War Ragnarök">
+                    <div class="game-info">
+                        <h3>God of War Ragnarök</h3>
+                        <p class="game-price">$59.99</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://tse3.mm.bing.net/th?id=OIP.scHLU-7DtzJJIiD1jnq7YQHaHa&pid=Api&P=0&h=180" alt="Spider-Man 2">
+                    <div class="game-info">
+                        <h3>Marvel's Spider-Man 2</h3>
+                        <p class="game-price">$69.99</p>
+                    </div>
+                </div>
+                <div class="game-card">
+                    <img src="https://image.api.playstation.com/vulcan/ap/rnd/202206/0720/eEczyEMDd2BLa3dtkGJVE9Id.png" alt="The Last of Us Part I">
+                    <div class="game-info">
+                        <h3>The Last of Us Part I</h3>
+                        <p class="game-price">$49.99</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="platform-footer">
+        <p>© 2025 CALP VideoGames. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
