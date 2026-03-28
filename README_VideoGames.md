@@ -4,7 +4,7 @@ Tienda en línea de videojuegos digitales con catálogo por plataforma, carrito 
 
 > **Nota:** El sistema de registro de usuarios requiere XAMPP para funcionar localmente. Sin embargo, puedes explorar el catálogo completo, el carrito de compras y todas las secciones directamente desde el navegador sin instalar nada.
 > 
-> 🌐 [Ver sitio en vivo](https://uminogit.github.io/Sitio-web-de-venta-de-juegos/)
+> 🌐 [Ver sitio en vivo](https://uminogit.github.io/SItio-web-de-venta-de-juegos/)
 
 ---
 
